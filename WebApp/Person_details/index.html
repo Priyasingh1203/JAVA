@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Person Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #007BFF;
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <form action="UserServlet" method="GET">
+        <center>
+            <h1>USER DETAILS</h1>    
+            <p>Name: <input type="text" maxlength="16" name="user" required></p>
+            <p>Email: <input type="email" id="emailid" required></p>
+            <p>Mobile: <input type="tel" pattern="[91][0-9{8}" required></p>
+            <p>Username: <input type="text" name="username" required></p>  
+            <p>Password: <input type="password" name="password" required></p>  
+            <button type="submit">Submit</button>
+        </center>
+    </form>
+</body>
+</html>
