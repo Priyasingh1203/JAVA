@@ -1,189 +1,39 @@
-
-<html lang="en">
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
     <head>
+        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registration Form</title>
-        <style>
-            body {
-                font-family: 'Arial', sans-serif;
-                background-color: #f4f4f4;
-                margin: 0;
-                /*            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            height: 100vh;*/
-            }
-
-            .container {
-                background-color: #fff;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 400px;
-
-            }
-            .cent{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-            }
-
-            h2 {
-                text-align: center;
-                color: #333;
-            }
-
-            form {
-                display: flex;
-                flex-direction: column;
-            }
-
-            label {
-                margin-bottom: 8px;
-                color: #555;
-            }
-
-            input {
-                padding: 10px;
-                margin-bottom: 16px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
-
-            input[type="submit"] {
-                background-color: #4caf50;
-                color: #fff;
-                cursor: pointer;
-            }
-
-            input[type="submit"]:hover {
-                background-color: #45a049;
-            }
-
-            .signin-link {
-                text-align: center;
-                margin-top: 10px;
-            }
-
-            .signin-link a {
-                color: #3498db;
-                text-decoration: none;
-                font-weight: bold;
-            }
-
-            .error {
-                color: #e74c3c;
-                margin-top: 5px;
-            }
-            .navbar {
-                background-color: #333;
-                overflow: hidden;
-            }
-
-            .navbar a {
-                float: left;
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-            .navbar a:hover {
-                background-color: #ddd;
-                color: black;
-            }
-        </style>
-    </head>
-    <body>
-
-        <div class="navbar">
-            <a href="userlogin.html">Login</a>
-            <a href="UserRegistration.html">Register</a>
-            <a href="Career.html">Carrier</a>
-            <a href="Contacts.html">Contact</a>
-        </div>
-
-        <div class="cent">
-            <div class="container">
-                <h2>User Registration</h2>
-                <form id="registrationForm" onsubmit="return validateForm()" action="userRegis.jsp" method="post">
-                    <!-- Name -->
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-
-                    <!-- Email -->
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <!-- Date of Birth -->
-                    <label for="dob">Date of Birth:</label>
-                    <input type="date" id="dob" name="dob" required>
-
-                    <!-- Username -->
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-
-                    <!-- Password -->
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-
-                    <!-- Confirm Password -->
-                    <label for="confirmPassword">Confirm Password:</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" required>
-                    <span id="passwordError" class="error"></span>
-
-                    <input type="submit" value="Register">
-                </form>
-
-                <div class="signin-link">
-                    <p>Already have an account? <a href="#">Sign In</a></p>
-                </div>
-            </div>
-        </div>
-
         <script>
-            function validateForm() {
-                var password = document.getElementById("password").value;
-                var confirmPassword = document.getElementById("confirmPassword").value;
-                var passwordError = document.getElementById("passwordError");
-                
-                function validatePassword(password) {
-                    // Define the regular expression for the updated password criteria
-                    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-
-                    // Test the password against the regular expression
-                    const isValid = passwordRegex.test(password);
-
-                    // Return the result of the validation
-                    return isValid;
-                }
-                
-                
-                // This is the if-else block to return the Password is valid or not.
-                if (validatePassword(password)) {
-                    if (password !== confirmPassword) {
-                        passwordError.textContent = "Passwords do not match";
-                        //console.log("craiteria matched but confirm pass not matched");
-                        return false;
-                    } else {
-                        passwordError.textContent = "";
-                        //console.log("criteria and password both matched");
-                        
-                        return true;
-                    }
-                }else{
-                    passwordError.textContent="Password must be atleast 6 characters, including 1 upper case and 1 lower case";
-                    //console.log("Criteria not matched");
-                    return false;
-                }
-                
-                
-                }
-            
-        </script>
-
+    function myFunction() {
+        var pass1 = document.getElementById("pass").value;
+        var pass2 = document.getElementById("cpass").value;
+        if (pass1 !== pass2) {
+            alert("Passwords Do not match");
+            document.getElementById("pass").style.borderColor = "#E34234";
+            document.getElementById("cpass").style.borderColor = "#E34234";
+        }
+        else {
+            alert("Passwords Match!!!");
+            document.getElementById("regForm").submit();
+        }
+    }
+    </script>
+    </head> 
+    <body>
+         <form method="post" id="regForm" onsubmit="return myFunction()" action ="regis.jsp">;
+         Name <input type="text" name="name"><br/><br/>
+         Email <input type="text" name="email"><br/><br/>
+         Username <input type="text" name="uname"><br/><br/>
+         Password <input type="text" placeholder="Password" name="pass" pattern= "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^*_=+-]).{6,16}$" title="Must contain at least 6 characters and one uppercase and lowercase letter" required><br/><br/>
+         Confirm Password <input type="password" placeholder="Confirm Password" name="cpass" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^*_=+-]).{8,16}$" title="Must contain at least 6 characters and one uppercase and lowercase letter" required><br/><br/>
+         Mobile <input type="tel" name="mob"><br/><br/>
+         <button type = "submit" >Submit</button>  
+         </form>
     </body>
 </html>
+
